@@ -9,7 +9,7 @@ string Player::GetPlayerName(){
     return name;
 }
 
-void Player::ChangePlayerName(string name){
-    name = name;
+void Player::ChangePlayerName(string newName){
+    name = newName;
     cout << "[You have successfully changed your name for " << name << "]" << endl;
 }
