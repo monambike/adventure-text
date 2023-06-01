@@ -10,7 +10,7 @@ void GameMessage::WriteWelcomeMessage() {
     cout << "Welcome to ";
     // Game title as red
     TerminalUtils::ChangeApplicationColor(Red);
-    cout << "[game-name]";
+    cout << "SUPER GAME SAGA";
     // Returning terminal color as white again
     TerminalUtils::ChangeApplicationColor(White);
     cout << "!" << endl
@@ -18,8 +18,10 @@ void GameMessage::WriteWelcomeMessage() {
     << "Please, insert the name you would want to be called for: ";
 }
 
-void GameMessage::AskForPlayerName(Player player) {
+void GameMessage::AskForChangePlayerName(Player player) {
     string userInput;
+    TerminalUtils::ChangeApplicationColor(Magenta);
     cin >> userInput;
-    player.ChangePlayerName(userInput);
+    TerminalUtils::ChangeApplicationColor(White);
+    player.SetPlayerName(userInput);
 }

@@ -22,7 +22,8 @@ void Status::DisplayUserLife(){
 void Status::ShowGameStatusOnScreen() {
     DisplayMajorLine();
     cout << endl << "STATUS" << endl;
-    cout << mainPlayer.GetPlayerName() << endl;
+    mainPlayer.DisplayPlayerName();
+    cout << endl;
     DisplayUserLife();
     DisplayMajorLine();
 }

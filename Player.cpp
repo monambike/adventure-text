@@ -1,15 +1,25 @@
 #include <iostream>
 #include "Player.h"
+#include "TerminalUtils.h"
 using namespace std;
 
-int life = 3; // If life reaches 0, then it's game over, life cannot be under 0
-string name = "Player Name"; // User can change player name
+Player mainPlayer;
+
+Player::Player() : name("Player Name"), life(3) {
+    
+}
+
+void Player::DisplayPlayerName(){
+    TerminalUtils::ChangeApplicationColor(Magenta);
+    cout << name;
+    TerminalUtils::ChangeApplicationColor(White);
+}
 
 string Player::GetPlayerName(){
     return name;
 }
 
-void Player::ChangePlayerName(string newName){
+void Player::SetPlayerName(string newName){
     name = newName;
     cout << "[You have successfully changed your name for " << name << "]" << endl;
 }

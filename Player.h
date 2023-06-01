@@ -5,10 +5,19 @@
 using namespace std;
 
 class Player {
-public:
+private:
+    string name; // User can change player name
+    int life; // If life reaches 0, then it's game over, life cannot be under 0
+
     string GetPlayerName();
-    void ChangePlayerName(string name);
+public:
+    Player();  // Constructor
+    void DisplayPlayerName();
+    void SetPlayerName(string name);
+
     int GetPlayerLife();
 };
+
+extern Player mainPlayer;
 
 #endif

@@ -5,15 +5,19 @@
 #include "Status.h"
 using namespace std;
 
-extern Player mainPlayer;
-Player mainPlayer;
-
 int main() {
+    // Welcome message
     GameMessage::WriteWelcomeMessage();
-    GameMessage::AskForPlayerName(mainPlayer);
+    GameMessage::AskForChangePlayerName(mainPlayer);
 
+    // Ask for user the name he would like to have
     TerminalUtils::ClearTerminal();
     Status::ShowGameStatusOnScreen();
-    cout << endl << "Thank you so much " << mainPlayer.GetPlayerName() << "!";
+
+    // Says "Thank you so much [player-name]!"
+    cout << endl << "Thank you so much ";
+    mainPlayer.DisplayPlayerName();
+    cout << "!";
+    
     return 0;
 }
