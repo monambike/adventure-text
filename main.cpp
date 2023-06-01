@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     // Welcome message
     GameMessage::WriteWelcomeMessage();
-    GameMessage::AskForChangePlayerName(mainPlayer);
+    GameMessage::AskForChangePlayerName();
 
     // Ask for user the name he would like to have
     TerminalUtils::ClearTerminal();

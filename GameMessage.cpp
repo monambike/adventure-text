@@ -18,10 +18,10 @@ void GameMessage::WriteWelcomeMessage() {
     << "Please, insert the name you would want to be called for: ";
 }
 
-void GameMessage::AskForChangePlayerName(Player player) {
+void GameMessage::AskForChangePlayerName() {
     string userInput;
     TerminalUtils::ChangeApplicationColor(Magenta);
     cin >> userInput;
     TerminalUtils::ChangeApplicationColor(White);
-    player.SetPlayerName(userInput);
+    mainPlayer.SetPlayerName(userInput);
 }

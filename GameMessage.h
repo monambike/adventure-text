@@ -7,7 +7,7 @@ using namespace std;
 class GameMessage {
 public:
     static void WriteWelcomeMessage();
-    static void AskForChangePlayerName(Player player);
+    static void AskForChangePlayerName();
 };
 
 #endif
