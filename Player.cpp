@@ -2,7 +2,7 @@
 #include "Player.h"
 using namespace std;
 
-int life = 100; // If life reaches 0, then it's game over, life cannot be under 0
+int life = 3; // If life reaches 0, then it's game over, life cannot be under 0
 string name = "Player Name"; // User can change player name
 
 string Player::GetPlayerName(){
@@ -12,4 +12,8 @@ string Player::GetPlayerName(){
 void Player::ChangePlayerName(string newName){
     name = newName;
     cout << "[You have successfully changed your name for " << name << "]" << endl;
+}
+
+int Player::GetPlayerLife(){
+    return life;
 }

@@ -8,6 +8,7 @@ class Player {
 public:
     string GetPlayerName();
     void ChangePlayerName(string name);
+    int GetPlayerLife();
 };
 
 #endif
