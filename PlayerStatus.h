@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class Status {
+class PlayerStatus {
 public:
     static void DisplayMajorLine();
     static void DisplayUserLife();

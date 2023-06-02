@@ -8,6 +8,7 @@ class GameMessage {
 public:
     static void WriteWelcomeMessage();
     static void AskForChangePlayerName();
+    static void PressAnyKeyToContinue();
 };
 
 #endif

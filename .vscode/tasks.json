@@ -11,7 +11,8 @@
                 "TerminalUtils.cpp",
                 "GameMessage.cpp",
                 "Player.cpp",
-                "Status.cpp",
+                "PlayerStatus.cpp",
+                "GameActions.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

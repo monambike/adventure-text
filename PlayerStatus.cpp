@@ -1,14 +1,14 @@
 #include <iostream>
 #include "TerminalUtils.h"
 #include "Player.h"
-#include "Status.h"
+#include "PlayerStatus.h"
 using namespace std;
 
-void Status::DisplayMajorLine() {
+void PlayerStatus::DisplayMajorLine() {
     cout << "------------------------------" << endl;
 }
 
-void Status::DisplayUserLife(){
+void PlayerStatus::DisplayUserLife(){
     cout << "Life Points:";
     int end = mainPlayer.GetPlayerLife();
     TerminalUtils::ChangeApplicationColor(Red);
@@ -19,7 +19,7 @@ void Status::DisplayUserLife(){
     TerminalUtils::ChangeApplicationColor(White);
 }
 
-void Status::ShowGameStatusOnScreen() {
+void PlayerStatus::ShowGameStatusOnScreen() {
     DisplayMajorLine();
     cout << endl << "STATUS" << endl;
     mainPlayer.DisplayPlayerName();
