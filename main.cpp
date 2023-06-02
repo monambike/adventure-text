@@ -6,23 +6,29 @@
 #include "PlayerStatus.h"
 using namespace std;
 
+void StrangeCandyEvent() {
+    string question = R"(A wild vendor appears and try to give you one mysterious candy. You
+    have the option to accept it.)";
+    string actions[] = {"Buy", "\"I'm not buying this!\"", "", "" };
+    GameActions::TriggerBaseEvent(question, actions);
+}
 
 int main() {
-    string actions[5] = {"Action 1", "Action 2", "Action 3", "Action 4"};
-    GameActions::ShowActions(actions);
-    // // Welcome message
-    // GameMessage::WriteWelcomeMessage();
-    
-    // GameMessage::AskForChangePlayerName();
+    TerminalUtils::ClearTerminal();
+    // Welcome message
+    GameMessage::ShowWelcomeMessage();
 
-    // // Ask for user the name he would like to have
-    // TerminalUtils::ClearTerminal();
-    // PlayerStatus::ShowGameStatusOnScreen();
+    // Ask for user the name he would like to have
+    TerminalUtils::ClearTerminal();
+    GameMessage::AskForChangePlayerName();
 
-    // // Says "Thank you so much [player-name]!"
-    // cout << endl << "Thank you so much ";
-    // mainPlayer.DisplayPlayerName();
-    // cout << "!";
+    TerminalUtils::ClearTerminal();
+    PlayerStatus::ShowGameStatusOnScreen();
+    StrangeCandyEvent();
+    // Says "Thank you so much [player-name]!"
+    cout << endl << "Thank you so much ";
+    mainPlayer.DisplayPlayerName();
+    cout << "!";
     
-    // return 0;
+    return 0;
 }

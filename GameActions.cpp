@@ -3,39 +3,52 @@
 #include <unordered_map>
 #include <functional>
 #include <conio.h>
+#include <string>
 #include "GameActions.h"
 #include "GameMessage.h"
 #include "TerminalUtils.h"
 using namespace std;
 
-void GameActions::ShowQuestion(string question) {
-    cout << question;
+void GameActions::ShowQuestionMenu(string question) {
+    cout << "<< " << question << " >>" << endl << endl;
+}
+
+void GameActions::ShowActionsMenu(string actions[numberOfActions]) {
+    cout << "   ACTIONS" << endl;
+    // Use the array
+    for (int i = 0; i < numberOfActions; i++) {
+        cout << i+1 << "] " << actions[i] << endl;
+    }
+}
+
+
+void SelectRandomEvent() {
 
 }
 
-void GameActions::ShowActions(string actions[numberOfActions]) {
-    cout << "[ACTIONS]" << endl;
-    // Use the array
-    for (int i = 0; i < numberOfActions; i++) {
-        cout << i+1 << " - " << actions[i] << endl;
-    }
+void Event1() {
 
+}
 
-    cout << "Select your action" << endl;
-    int userInput = _getch();
-
-    // Check if the input is not a digit or is not between 1 and 4
-    if (!isdigit(userInput) || userInput < '1' || userInput > '4') {
-        // Clears the terminal and shows the title
+int userSelectedAction;
+void GameActions::TriggerBaseEvent(string question, string actions[4]) {
+    while (true) {
         TerminalUtils::ClearTerminal();
-        TerminalUtils::ChangeApplicationColor(Red);
-        cout << "INVALID INPUT";
+        ShowQuestionMenu(question);
+        ShowActionsMenu(actions);
+        
+        cout << "SELECT YOUR ACTION" << endl;
+        userSelectedAction = _getch();
 
-        // Body message
-        TerminalUtils::ChangeApplicationColor(White);
-        cout << endl << endl << "Please enter a digit between 1 and 4." << endl;   
-
-        // Waiting for user input
-        GameMessage::PressAnyKeyToContinue();
+        // Check if the input is not a digit or is not between 1 and 4
+        if (!isdigit(userSelectedAction) || userSelectedAction < '1' || userSelectedAction > '4') {
+            // Clears the terminal and shows the title
+            TerminalUtils::ClearTerminal();
+            TerminalUtils::ChangeTerminalTextColor(Red);
+            
+            GameMessage::ShowInvalidInputTimerMessage();
+        } else {
+            break;
+        }
     }
 }

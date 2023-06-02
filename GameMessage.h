@@ -6,9 +6,11 @@ using namespace std;
 
 class GameMessage {
 public:
-    static void WriteWelcomeMessage();
+    static void ShowWelcomeMessage();
     static void AskForChangePlayerName();
-    static void PressAnyKeyToContinue();
+    static void ShowPressAnyKeyToContinueMessage();
+    static void ShowInvalidInputTimerMessage();
+    static void ClearTerminalAndShowInvalidInputMessage();
 };
 
 #endif

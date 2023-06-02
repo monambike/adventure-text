@@ -11,12 +11,12 @@ void PlayerStatus::DisplayMajorLine() {
 void PlayerStatus::DisplayUserLife(){
     cout << "Life Points:";
     int end = mainPlayer.GetPlayerLife();
-    TerminalUtils::ChangeApplicationColor(Red);
+    TerminalUtils::ChangeTerminalTextColor(Red);
     for (int i = 1; i <= end; i++) {
         cout << " ♥";
     }
     cout << endl << endl;
-    TerminalUtils::ChangeApplicationColor(White);
+    TerminalUtils::ChangeTerminalTextColor(White);
 }
 
 void PlayerStatus::ShowGameStatusOnScreen() {

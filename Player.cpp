@@ -10,9 +10,9 @@ Player::Player() : name("Player Name"), life(3) {
 }
 
 void Player::DisplayPlayerName(){
-    TerminalUtils::ChangeApplicationColor(Magenta);
+    TerminalUtils::ChangeTerminalTextColor(Magenta);
     cout << name;
-    TerminalUtils::ChangeApplicationColor(White);
+    TerminalUtils::ChangeTerminalTextColor(White);
 }
 
 string Player::GetPlayerName(){
