@@ -5,7 +5,7 @@
 using namespace std;
 
 void PlayerStatus::DisplayMajorLine() {
-    cout << "------------------------------" << endl;
+    cout << "==============================" << endl;
 }
 
 void PlayerStatus::DisplayUserLife(){
@@ -20,10 +20,15 @@ void PlayerStatus::DisplayUserLife(){
 }
 
 void PlayerStatus::ShowGameStatusOnScreen() {
+    // Header line
     DisplayMajorLine();
-    cout << endl << "STATUS" << endl;
+    cout << endl << "          STATUS" << endl << endl;
+    // Displaying player name line
     mainPlayer.DisplayPlayerName();
     cout << endl;
+    // Displaying user life line
     DisplayUserLife();
+    // Footer line
     DisplayMajorLine();
+    cout << endl;
 }

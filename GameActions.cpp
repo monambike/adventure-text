@@ -7,6 +7,7 @@
 #include "GameActions.h"
 #include "GameMessage.h"
 #include "TerminalUtils.h"
+#include "PlayerStatus.h"
 using namespace std;
 
 void GameActions::ShowQuestionMenu(string question) {
@@ -34,6 +35,7 @@ int userSelectedAction;
 void GameActions::TriggerBaseEvent(string question, string actions[4]) {
     while (true) {
         TerminalUtils::ClearTerminal();
+        PlayerStatus::ShowGameStatusOnScreen();
         ShowQuestionMenu(question);
         ShowActionsMenu(actions);
         

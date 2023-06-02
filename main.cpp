@@ -22,13 +22,7 @@ int main() {
     TerminalUtils::ClearTerminal();
     GameMessage::AskForChangePlayerName();
 
-    TerminalUtils::ClearTerminal();
-    PlayerStatus::ShowGameStatusOnScreen();
     StrangeCandyEvent();
-    // Says "Thank you so much [player-name]!"
-    cout << endl << "Thank you so much ";
-    mainPlayer.DisplayPlayerName();
-    cout << "!";
     
     return 0;
 }
