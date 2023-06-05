@@ -1,18 +1,5 @@
-/**********************************************************************
-    File: myfile.cpp
-    Author: Your Name
-    Description: Brief description of the file's purpose or functionality.
-
-    [Additional details or notes if necessary]
-
-    Copyright (c) [year], [author]
-    Distributed under the [license] License (http://opensource.org/licenses/[license])
-
-    [Any other relevant information or acknowledgements]
-**********************************************************************/
-
 // Copyright(c) 2023-present, Vinícius Gabriel (@monambike)
-// Distributed under the MIT License (http://opensource.org/licenses/MIT)
+// Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
 #include "Item.hpp"
 #include "TerminalUtils.hpp"
