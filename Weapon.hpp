@@ -2,11 +2,14 @@
 #define WEAPON_H
 
 #include <iostream>
-#include "Item.h"
+#include "Item.hpp"
 
 class Weapon : public Item {
-public:
+private:
     int damage;
+public:
+    // Getter methods
+    int getDamage() const;
 
     Weapon(const Item& item, int damage);
 };

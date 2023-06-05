@@ -2,9 +2,9 @@
 #include <conio.h>
 #include <iostream>
 #include <thread>
-#include "GameMessage.h"
-#include "Player.h"
-#include "TerminalUtils.h"
+#include "GameMessage.hpp"
+#include "Player.hpp"
+#include "TerminalUtils.hpp"
 
 void showGameDescription() {
     std::cout << R"(

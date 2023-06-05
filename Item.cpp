@@ -1,5 +1,5 @@
-#include "Item.h"
-#include "TerminalUtils.h"
+#include "Item.hpp"
+#include "TerminalUtils.hpp"
 
 Item::Item(std::string name, std::string description, Rarity rarity)
     : name(name), description(description), rarity(rarity) {}

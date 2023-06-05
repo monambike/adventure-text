@@ -4,10 +4,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "GameActions.h"
-#include "GameMessage.h"
-#include "PlayerStatus.h"
-#include "TerminalUtils.h"
+#include "GameActions.hpp"
+#include "GameMessage.hpp"
+#include "PlayerStatus.hpp"
+#include "TerminalUtils.hpp"
 using namespace std;
 
 void GameActions::showQuestionMenu(string question) {

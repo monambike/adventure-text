@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Player.h"
-#include "TerminalUtils.h"
+#include "Player.hpp"
+#include "TerminalUtils.hpp"
 using namespace std;
 
 Player mainPlayer;

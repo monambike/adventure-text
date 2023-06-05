@@ -1,9 +1,9 @@
 #include <iostream>
-#include "GameActions.h"
-#include "GameMessage.h"
-#include "Player.h"
-#include "PlayerStatus.h"
-#include "TerminalUtils.h"
+#include "GameActions.hpp"
+#include "GameMessage.hpp"
+#include "Player.hpp"
+#include "PlayerStatus.hpp"
+#include "TerminalUtils.hpp"
 
 void StrangeCandyEvent() {
     string question = R"(A wild vendor appears and try to give you one mysterious candy. You

@@ -1,7 +1,7 @@
 #ifndef GAMEMESSAGE_H
 #define GAMEMESSAGE_H
 
-#include "Player.h"
+#include "Player.hpp"
 
 class GameMessage {
 public:
