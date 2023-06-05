@@ -2,7 +2,6 @@
 #define GAMEMESSAGE_H
 
 #include "Player.h"
-using namespace std;
 
 class GameMessage {
 public:

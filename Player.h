@@ -2,18 +2,17 @@
 #define PLAYER_H
 
 #include <iostream>
-using namespace std;
 
 class Player {
 private:
-    string name; // User can change player name
+    std::string name; // User can change player name
     int life; // If life reaches 0, then it's game over, life cannot be under 0
 
-    string GetPlayerName();
+    std::string GetPlayerName();
 public:
     Player();
     void DisplayPlayerName();
-    void SetPlayerName(string name);
+    void SetPlayerName(std::string name);
 
     int GetPlayerLife();
 };

@@ -16,7 +16,7 @@ public:
     std::string description;
     Rarity rarity;
 
-    Item(string name, string description, Rarity rarity);
+    Item(std::string name, std::string description, Rarity rarity);
 
     void ShowItemProperties();
     void GetItemName();

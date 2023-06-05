@@ -1,13 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <functional>
 #include <conio.h>
+#include <functional>
+#include <iostream>
 #include <string>
+#include <unordered_map>
+#include <vector>
 #include "GameActions.h"
 #include "GameMessage.h"
-#include "TerminalUtils.h"
 #include "PlayerStatus.h"
+#include "TerminalUtils.h"
 using namespace std;
 
 void GameActions::ShowQuestionMenu(string question) {
@@ -21,7 +21,6 @@ void GameActions::ShowActionsMenu(string actions[numberOfActions]) {
         cout << i+1 << "] " << actions[i] << endl;
     }
 }
-
 
 void SelectRandomEvent() {
 

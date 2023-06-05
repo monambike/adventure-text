@@ -1,10 +1,9 @@
 #include <iostream>
-#include "TerminalUtils.h"
 #include "GameActions.h"
 #include "GameMessage.h"
 #include "Player.h"
 #include "PlayerStatus.h"
-using namespace std;
+#include "TerminalUtils.h"
 
 void StrangeCandyEvent() {
     string question = R"(A wild vendor appears and try to give you one mysterious candy. You

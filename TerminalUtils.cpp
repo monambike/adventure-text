@@ -1,9 +1,8 @@
-#include <iostream>
-#include <chrono>
-#include <thread>
 #include <atomic>
+#include <chrono>
+#include <iostream>
+#include <thread>
 #include "TerminalUtils.h"
-using namespace std;
 
 std::atomic<bool> timerExpired(false);
 

@@ -15,7 +15,7 @@ void Player::DisplayPlayerName(){
     TerminalUtils::ChangeTerminalTextColor(WHITE);
 }
 
-string Player::GetPlayerName(){
+std::string Player::GetPlayerName(){
     return name;
 }
 

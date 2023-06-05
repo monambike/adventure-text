@@ -1,8 +1,7 @@
 #include <iostream>
-#include "TerminalUtils.h"
 #include "Player.h"
 #include "PlayerStatus.h"
-using namespace std;
+#include "TerminalUtils.h"
 
 void PlayerStatus::DisplayMajorLine() {
     cout << "==============================" << endl;

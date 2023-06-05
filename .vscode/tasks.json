@@ -10,7 +10,6 @@
                 "${file}",
                 "TerminalUtils.cpp",
                 "GameMessage.cpp",
-                "GameUtils.cpp",
                 "Item.cpp",
                 "Player.cpp",
                 "PlayerStatus.cpp",

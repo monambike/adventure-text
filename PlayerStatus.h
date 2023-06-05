@@ -2,7 +2,6 @@
 #define STATUS_H
 
 #include <iostream>
-using namespace std;
 
 class PlayerStatus {
 public:

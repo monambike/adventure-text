@@ -1,37 +1,36 @@
-#include <iostream>
-#include <conio.h>
 #include <chrono>
+#include <conio.h>
+#include <iostream>
 #include <thread>
 #include "GameMessage.h"
 #include "Player.h"
 #include "TerminalUtils.h"
-using namespace std;
 
 void GameMessage::ClearTerminalAndShowInvalidInputMessage() {
     TerminalUtils::ClearTerminal();
     TerminalUtils::ChangeTerminalTextColor(Red);
-    cout << "INVALID INPUT" << endl << endl;;
+    std::cout << "INVALID INPUT" << endl << endl;;
     TerminalUtils::ChangeTerminalTextColor(WHITE);
-    cout << "This option it's not a valid input, please select an option from ";
+    std::cout << "This option it's not a valid input, please select an option from ";
     TerminalUtils::ChangeTerminalTextColor(Red);
-    cout << "list of actions";
+    std::cout << "list of actions";
     TerminalUtils::ChangeTerminalTextColor(WHITE);
-    cout << "." << endl;
+    std::cout << "." << endl;
 }
 
 void GameMessage::ShowWelcomeMessage() {
     TerminalUtils::ChangeTerminalTextColor(WHITE);
-    cout << "WELCOME TO ";
+    std::cout << "WELCOME TO ";
     // Game title as red
     TerminalUtils::ChangeTerminalTextColor(BLUE);
-    cout << "SUPER GAME SAGA" << endl
-         << "           SUPER GAME SAGA" << endl
-         << "           SUPER GAME SAGA";
+    std::cout << "SUPER GAME SAGA" << endl
+              << "           SUPER GAME SAGA" << endl
+              << "           SUPER GAME SAGA";
     // Returning terminal color as white again
     TerminalUtils::ChangeTerminalTextColor(WHITE);
-    cout << "!" << endl;
+    std::cout << "!" << endl;
 
-    cout << R"(
+    std::cout << R"(
 ______________________________
 
 In this game, you will embark on a captivating journey through many
@@ -51,17 +50,17 @@ ______________________________
 
 void GameMessage::AskForChangePlayerName() {
     // Asking for user input
-    cout << endl << "Please, insert the ";
+    std::cout << endl << "Please, insert the ";
     TerminalUtils::ChangeTerminalTextColor(YELLOW);
-    cout << "name you would want to be called";
+    std::cout << "name you would want to be called";
     TerminalUtils::ChangeTerminalTextColor(WHITE);
-    cout << " for: ";
+    std::cout << " for: ";
 
     // User input, set terminal color to purple for enfatize
     // its name
     string userInput;
     TerminalUtils::ChangeTerminalTextColor(MAGENTA);
-    cin >> userInput;
+    std::cin >> userInput;
 
     // Set terminal color to white again and its name on character
     TerminalUtils::ChangeTerminalTextColor(WHITE);
@@ -86,11 +85,11 @@ void GameMessage::ShowInvalidInputTimerMessage(){
         this_thread::sleep_for(chrono::seconds(1));
 
         GameMessage::ClearTerminalAndShowInvalidInputMessage();
-        cout << endl << "Message disappearing in ";
+        std::cout << endl << "Message disappearing in ";
         TerminalUtils::ChangeTerminalTextColor(YELLOW);
-        cout << seconds;
+        std::cout << seconds;
         TerminalUtils::ChangeTerminalTextColor(WHITE);
-        cout << " seconds.";
+        std::cout << " seconds.";
     }
 
     // Join the timer thread
@@ -98,5 +97,5 @@ void GameMessage::ShowInvalidInputTimerMessage(){
 
     TerminalUtils::ClearTerminal();
     // Check the timer status
-    if (timerExpired) cout << "Timer expired!" << endl;
+    if (timerExpired) std::cout << "Timer expired!" << endl;
 }
