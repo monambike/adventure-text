@@ -6,9 +6,11 @@
 #include "TerminalUtils.hpp"
 
 void StrangeCandyEvent() {
-    string question = R"(A wild vendor appears and try to give you one mysterious candy. You
-    have the option to accept it.)";
-    string actions[] = {"Buy", "\"I'm not buying this!\"", "", "" };
+    string question =
+R"(A wild vendor appears and try to give you one mysterious candy. You
+have the option to accept it.)";
+
+    string actions[] = {"Buy", "\"I'm not buying your weird candy!\"", "", "" };
     GameActions::triggerBaseEvent(question, actions);
 }
 
