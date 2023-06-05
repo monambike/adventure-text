@@ -4,7 +4,7 @@
 #ifndef GAMEMESSAGE_H
 #define GAMEMESSAGE_H
 
-#include "Player.hpp"
+#include "../PlayerComponents/Player.hpp"
 
 class GameMessage {
 public:

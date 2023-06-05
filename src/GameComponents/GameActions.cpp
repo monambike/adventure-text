@@ -9,8 +9,8 @@
 #include <vector>
 #include "GameActions.hpp"
 #include "GameMessage.hpp"
-#include "PlayerStatus.hpp"
-#include "TerminalUtils.hpp"
+#include "../PlayerComponents/PlayerStatus.hpp"
+#include "../Utilities/TerminalUtils.hpp"
 using namespace std;
 
 void GameActions::showQuestionMenu(string question) {

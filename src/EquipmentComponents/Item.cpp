@@ -2,7 +2,7 @@
 // Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
 #include "Item.hpp"
-#include "TerminalUtils.hpp"
+#include "../Utilities/TerminalUtils.hpp"
 
 Item::Item(std::string name, std::string description, Rarity rarity)
     : name(name), description(description), rarity(rarity) {}

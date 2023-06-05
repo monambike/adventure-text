@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Player.hpp"
 #include "PlayerStatus.hpp"
-#include "TerminalUtils.hpp"
+#include "../Utilities/TerminalUtils.hpp"
 
 void PlayerStatus::displayMajorLine() {
     cout << "==============================";

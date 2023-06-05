@@ -6,8 +6,8 @@
 #include <iostream>
 #include <thread>
 #include "GameMessage.hpp"
-#include "Player.hpp"
-#include "TerminalUtils.hpp"
+#include "../PlayerComponents/Player.hpp"
+#include "../Utilities/TerminalUtils.hpp"
 
 void showGameDescription() {
     std::cout << R"(

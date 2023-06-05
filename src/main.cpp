@@ -2,20 +2,12 @@
 // Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
 #include <iostream>
-#include "GameActions.hpp"
-#include "GameMessage.hpp"
-#include "Player.hpp"
-#include "PlayerStatus.hpp"
-#include "TerminalUtils.hpp"
-
-void StrangeCandyEvent() {
-    string question =
-R"(A wild vendor appears and try to give you one mysterious candy. You
-have the option to accept it.)";
-
-    string actions[] = {"Buy", "\"I'm not buying your weird candy!\"", "", "" };
-    GameActions::triggerBaseEvent(question, actions);
-}
+#include "GameComponents/GameActions.hpp"
+#include "GameComponents/GameEvent.hpp"
+#include "GameComponents/GameMessage.hpp"
+#include "PlayerComponents/Player.hpp"
+#include "PlayerComponents/PlayerStatus.hpp"
+#include "Utilities/TerminalUtils.hpp"
 
 int main() {
     TerminalUtils::clearTerminal();
@@ -26,7 +18,7 @@ int main() {
     TerminalUtils::clearTerminal();
     GameMessage::askForChangePlayerName();
 
-    StrangeCandyEvent();
-    
+    GameEvent::strangeCandyEvent();
+
     return 0;
 }
