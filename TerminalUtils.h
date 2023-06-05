@@ -6,14 +6,14 @@
 using namespace std;
 
 enum Color {
-    Black,
+    BLACK,
     Red,
-    Green,
-    Yellow,
-    Blue,
-    Magenta,
-    Cyan,
-    White
+    GREEN,
+    YELLOW,
+    BLUE,
+    MAGENTA,
+    CYAN,
+    WHITE
 };
 
 extern std::atomic<bool> timerExpired;

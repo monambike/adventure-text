@@ -11,7 +11,7 @@ private:
 
     string GetPlayerName();
 public:
-    Player();  // Constructor
+    Player();
     void DisplayPlayerName();
     void SetPlayerName(string name);
 

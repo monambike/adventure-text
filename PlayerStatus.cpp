@@ -16,7 +16,7 @@ void PlayerStatus::DisplayUserLife(){
         cout << " ♥";
     }
     cout << endl << endl;
-    TerminalUtils::ChangeTerminalTextColor(White);
+    TerminalUtils::ChangeTerminalTextColor(WHITE);
 }
 
 void PlayerStatus::ShowGameStatusOnScreen() {
