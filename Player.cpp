@@ -9,21 +9,21 @@ Player::Player() : name("Player Name"), life(3) {
     
 }
 
-void Player::DisplayPlayerName(){
-    TerminalUtils::ChangeTerminalTextColor(MAGENTA);
+void Player::displayPlayerName(){
+    TerminalUtils::changeTerminalTextColor(MAGENTA);
     cout << name;
-    TerminalUtils::ChangeTerminalTextColor(WHITE);
+    TerminalUtils::changeTerminalTextColor(WHITE);
 }
 
-std::string Player::GetPlayerName(){
+std::string Player::getPlayerName(){
     return name;
 }
 
-void Player::SetPlayerName(string newName){
+void Player::setPlayerName(string newName){
     name = newName;
     cout << "[You have successfully changed your name for " << name << "]" << endl;
 }
 
-int Player::GetPlayerLife(){
+int Player::getPlayerLife(){
     return life;
 }

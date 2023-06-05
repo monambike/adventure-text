@@ -5,9 +5,9 @@
 
 class PlayerStatus {
 public:
-    static void DisplayMajorLine();
-    static void DisplayUserLife();
-    static void ShowGameStatusOnScreen();
+    static void displayMajorLine();
+    static void displayUserLife();
+    static void showGameStatusOnScreen();
 };
 
 #endif

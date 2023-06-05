@@ -12,15 +12,20 @@ enum Rarity {
 };
 
 class Item {
-public:
+protected:
     std::string name;
     std::string description;
     Rarity rarity;
-
+public:
     Item(std::string name, std::string description, Rarity rarity);
+    
+    // Getter methods
+    std::string getName() const;
+    std::string getDescription() const;
+    Rarity getRarity() const;
 
-    void ShowItemProperties();
-    void GetName();
+    void showDetailedInfo();
+    void displayName();
 };
 
 #endif

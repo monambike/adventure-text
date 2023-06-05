@@ -6,7 +6,7 @@
 
 std::atomic<bool> timerExpired(false);
 
-void TerminalUtils::ChangeTerminalTextColor(Color color) {
+void TerminalUtils::changeTerminalTextColor(Color color) {
     switch (color) {
         case BLACK: cout << "\033[30m"; break;
         case Red: cout << "\033[31m"; break;
@@ -19,12 +19,12 @@ void TerminalUtils::ChangeTerminalTextColor(Color color) {
     }
 }
 
-void TerminalUtils::ClearTerminal() {
+void TerminalUtils::clearTerminal() {
     cout << "\033[2J\033[1;1H"; // Clear terminal screen for most platforms, including VS Code's integrated terminal
     cout.flush();
 }
 
-void TerminalUtils::TimerThread(atomic<bool>& timerExpired, int seconds) {
+void TerminalUtils::timerThread(atomic<bool>& timerExpired, int seconds) {
     // Sleep for 3 seconds
     this_thread::sleep_for(chrono::seconds(seconds));
 

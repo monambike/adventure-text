@@ -8,13 +8,13 @@ private:
     std::string name; // User can change player name
     int life; // If life reaches 0, then it's game over, life cannot be under 0
 
-    std::string GetPlayerName();
+    std::string getPlayerName();
 public:
     Player();
-    void DisplayPlayerName();
-    void SetPlayerName(std::string name);
+    void displayPlayerName();
+    void setPlayerName(std::string name);
 
-    int GetPlayerLife();
+    int getPlayerLife();
 };
 
 extern Player mainPlayer;

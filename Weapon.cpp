@@ -2,4 +2,4 @@
 #include "Weapon.h"
 
 Weapon::Weapon(const Item& item, int damage)
-    : Item(item.name, item.description, item.rarity), damage(damage) {}
+    : Item(item.getName(), item.getDescription(), item.getRarity()), damage(damage) {}

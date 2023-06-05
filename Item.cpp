@@ -4,21 +4,34 @@
 Item::Item(std::string name, std::string description, Rarity rarity)
     : name(name), description(description), rarity(rarity) {}
 
-void Item::GetName() {
-    switch (rarity) {
-        case COMMON: TerminalUtils::ChangeTerminalTextColor(WHITE); break;
-        case UNCOMMON: TerminalUtils::ChangeTerminalTextColor(BLUE); break;
-        case RARE: TerminalUtils::ChangeTerminalTextColor(CYAN); break;
-        case EPIC: TerminalUtils::ChangeTerminalTextColor(MAGENTA); break;
-        case LEGENDARY: TerminalUtils::ChangeTerminalTextColor(YELLOW); break;
-    }
-    std::cout << name;
-    TerminalUtils::ChangeTerminalTextColor(WHITE);
+
+std::string Item::getName() const {
+    return name;
 }
 
-void Item::ShowItemProperties() {
+std::string Item::getDescription() const {
+    return description;
+}
+
+Rarity Item::getRarity() const {
+    return rarity;
+}
+
+void Item::displayName() {
+    switch (rarity) {
+        case COMMON: TerminalUtils::changeTerminalTextColor(WHITE); break;
+        case UNCOMMON: TerminalUtils::changeTerminalTextColor(BLUE); break;
+        case RARE: TerminalUtils::changeTerminalTextColor(CYAN); break;
+        case EPIC: TerminalUtils::changeTerminalTextColor(MAGENTA); break;
+        case LEGENDARY: TerminalUtils::changeTerminalTextColor(YELLOW); break;
+    }
+    std::cout << name;
+    TerminalUtils::changeTerminalTextColor(WHITE);
+}
+
+void Item::showDetailedInfo() {
     std::cout << "Name: ";
-    GetName();
+    displayName();
     std::cout << std::endl;
     std::cout << "Rarity: " << rarity << std::endl;
 }

@@ -10,11 +10,11 @@
 #include "TerminalUtils.h"
 using namespace std;
 
-void GameActions::ShowQuestionMenu(string question) {
+void GameActions::showQuestionMenu(string question) {
     cout << "<< " << question << " >>" << endl << endl;
 }
 
-void GameActions::ShowActionsMenu(string actions[numberOfActions]) {
+void GameActions::showActionsMenu(string actions[numberOfActions]) {
     cout << "   ACTIONS" << endl;
     // Use the array
     for (int i = 0; i < numberOfActions; i++) {
@@ -22,21 +22,17 @@ void GameActions::ShowActionsMenu(string actions[numberOfActions]) {
     }
 }
 
-void SelectRandomEvent() {
-
-}
-
-void Event1() {
+void selectRandomEvent() {
 
 }
 
 int userSelectedAction;
-void GameActions::TriggerBaseEvent(string question, string actions[4]) {
+void GameActions::triggerBaseEvent(string question, string actions[4]) {
     while (true) {
-        TerminalUtils::ClearTerminal();
-        PlayerStatus::ShowGameStatusOnScreen();
-        ShowQuestionMenu(question);
-        ShowActionsMenu(actions);
+        TerminalUtils::clearTerminal();
+        PlayerStatus::showGameStatusOnScreen();
+        showQuestionMenu(question);
+        showActionsMenu(actions);
         
         cout << "SELECT YOUR ACTION" << endl;
         userSelectedAction = _getch();
@@ -44,10 +40,10 @@ void GameActions::TriggerBaseEvent(string question, string actions[4]) {
         // Check if the input is not a digit or is not between 1 and 4
         if (!isdigit(userSelectedAction) || userSelectedAction < '1' || userSelectedAction > '4') {
             // Clears the terminal and shows the title
-            TerminalUtils::ClearTerminal();
-            TerminalUtils::ChangeTerminalTextColor(Red);
+            TerminalUtils::clearTerminal();
+            TerminalUtils::changeTerminalTextColor(Red);
             
-            GameMessage::ShowInvalidInputTimerMessage();
+            GameMessage::showInvalidInputTimerMessage();
         } else {
             break;
         }

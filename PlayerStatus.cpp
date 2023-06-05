@@ -3,31 +3,31 @@
 #include "PlayerStatus.h"
 #include "TerminalUtils.h"
 
-void PlayerStatus::DisplayMajorLine() {
+void PlayerStatus::displayMajorLine() {
     cout << "==============================";
 }
 
-void PlayerStatus::DisplayUserLife(){
+void PlayerStatus::displayUserLife(){
     cout << "Life Points:";
-    int end = mainPlayer.GetPlayerLife();
-    TerminalUtils::ChangeTerminalTextColor(Red);
+    int end = mainPlayer.getPlayerLife();
+    TerminalUtils::changeTerminalTextColor(Red);
     for (int i = 1; i <= end; i++) {
         cout << " ♥";
     }
     cout << endl;
-    TerminalUtils::ChangeTerminalTextColor(WHITE);
+    TerminalUtils::changeTerminalTextColor(WHITE);
 }
 
-void PlayerStatus::ShowGameStatusOnScreen() {
+void PlayerStatus::showGameStatusOnScreen() {
     // Header line
-    DisplayMajorLine();
+    displayMajorLine();
     cout << endl << "            STATUS" << endl << endl;
     // Displaying player name line
-    mainPlayer.DisplayPlayerName();
+    mainPlayer.displayPlayerName();
     cout << endl;
     // Displaying user life line
-    DisplayUserLife();
+    displayUserLife();
     // Footer line
-    DisplayMajorLine();
+    displayMajorLine();
     cout << endl;
 }

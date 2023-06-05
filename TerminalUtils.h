@@ -20,9 +20,9 @@ extern std::atomic<bool> timerExpired;
 
 class TerminalUtils {
 public:
-    static void ChangeTerminalTextColor(Color color);
-    static void ClearTerminal();
-    static void TimerThread(atomic<bool>& timerExpired, int seconds);
+    static void changeTerminalTextColor(Color color);
+    static void clearTerminal();
+    static void timerThread(atomic<bool>& timerExpired, int seconds);
 };
 
 #endif
