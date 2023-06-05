@@ -5,7 +5,7 @@
 
 class GameMessage {
 public:
-    static void ShowWelcomeMessage();
+    static void showWelcomeMessage();
     static void AskForChangePlayerName();
     static void ShowPressAnyKeyToContinueMessage();
     static void ShowInvalidInputTimerMessage();

@@ -6,6 +6,26 @@
 #include "Player.h"
 #include "TerminalUtils.h"
 
+void showGameDescription() {
+    std::cout << R"(
+In this game, you will embark on a captivating journey through many
+adventures.
+Your choices will shape the destiny of your character and the outcome
+of the game.
+
+This is a small game created to learn and explore the essentials of C++
+and the powerful capabilities it provides.
+
+Enjoy the adventure and let the history unfold!
+    )";
+
+    
+    int pressedKey = _getch();
+    if (pressedKey == 8) { // Tab key is pressed
+        cout << "Return to main menu";
+    }
+}
+
 void GameMessage::ClearTerminalAndShowInvalidInputMessage() {
     TerminalUtils::ClearTerminal();
     TerminalUtils::ChangeTerminalTextColor(Red);
@@ -18,33 +38,20 @@ void GameMessage::ClearTerminalAndShowInvalidInputMessage() {
     std::cout << "." << endl;
 }
 
-void GameMessage::ShowWelcomeMessage() {
+void ShowGameTitle() {
     TerminalUtils::ChangeTerminalTextColor(WHITE);
     std::cout << "WELCOME TO ";
     // Game title as red
     TerminalUtils::ChangeTerminalTextColor(BLUE);
-    std::cout << "SUPER GAME SAGA" << endl
-              << "           SUPER GAME SAGA" << endl
-              << "           SUPER GAME SAGA";
+    std::cout << "SUPER GAME SAGA";
     // Returning terminal color as white again
     TerminalUtils::ChangeTerminalTextColor(WHITE);
     std::cout << "!" << endl;
+}
 
-    std::cout << R"(
-______________________________
-
-In this game, you will embark on a captivating journey through many
-adventures.
-Your choices will shape the destiny of your character and the outcome
-of the game.
-
-This is a small game created to learn and explore the essentials of C++
-and the powerful capabilities it provides.
-
-Enjoy the adventure and let the history unfold!
-______________________________
-    )";
-
+void GameMessage::showWelcomeMessage() {
+    ShowGameTitle();
+    cout << endl << "Press [TAB] to see game description.";
     GameMessage::ShowPressAnyKeyToContinueMessage();
 }
 
@@ -67,10 +74,22 @@ void GameMessage::AskForChangePlayerName() {
     mainPlayer.SetPlayerName(userInput);
 }
 
-void GameMessage::ShowPressAnyKeyToContinueMessage() {
+void writeTextPressAnyKeyToContinue() {
     TerminalUtils::ChangeTerminalTextColor(YELLOW);
     cout << endl << ">> Press any key to continue... <<";
     TerminalUtils::ChangeTerminalTextColor(WHITE);
+}
+
+void ShowMenuPressAnyKeyToContinueMessageForMenu()  {
+    writeTextPressAnyKeyToContinue();
+    int pressedKey = _getch();
+    if (pressedKey == 9) { // Tab key is pressed
+        showGameDescription();
+    }
+}
+
+void GameMessage::ShowPressAnyKeyToContinueMessage() {
+    writeTextPressAnyKeyToContinue();
     _getch(); // Waits for a keypress without requiring Enter
 }
 

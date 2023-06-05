@@ -4,7 +4,7 @@
 #include "TerminalUtils.h"
 
 void PlayerStatus::DisplayMajorLine() {
-    cout << "==============================" << endl;
+    cout << "==============================";
 }
 
 void PlayerStatus::DisplayUserLife(){
@@ -14,14 +14,14 @@ void PlayerStatus::DisplayUserLife(){
     for (int i = 1; i <= end; i++) {
         cout << " ♥";
     }
-    cout << endl << endl;
+    cout << endl;
     TerminalUtils::ChangeTerminalTextColor(WHITE);
 }
 
 void PlayerStatus::ShowGameStatusOnScreen() {
     // Header line
     DisplayMajorLine();
-    cout << endl << "          STATUS" << endl << endl;
+    cout << endl << "            STATUS" << endl << endl;
     // Displaying player name line
     mainPlayer.DisplayPlayerName();
     cout << endl;

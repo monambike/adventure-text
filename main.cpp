@@ -15,7 +15,7 @@ void StrangeCandyEvent() {
 int main() {
     TerminalUtils::ClearTerminal();
     // Welcome message
-    GameMessage::ShowWelcomeMessage();
+    GameMessage::showWelcomeMessage();
 
     // Ask for user the name he would like to have
     TerminalUtils::ClearTerminal();

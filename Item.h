@@ -5,9 +5,10 @@
 
 enum Rarity {
     COMMON,
+    UNCOMMON,
     RARE,
     EPIC,
-    GODLIKE
+    LEGENDARY
 };
 
 class Item {
@@ -19,7 +20,7 @@ public:
     Item(std::string name, std::string description, Rarity rarity);
 
     void ShowItemProperties();
-    void GetItemName();
+    void GetName();
 };
 
 #endif
