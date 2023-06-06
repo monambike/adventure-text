@@ -5,7 +5,7 @@
 #define WEAPON_H
 
 #include <iostream>
-#include "Item.hpp"
+#include "item.hpp"
 
 class Weapon : public Item {
 private:

@@ -7,17 +7,17 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "GameActions.hpp"
-#include "GameMessage.hpp"
-#include "../PlayerComponents/PlayerStatus.hpp"
-#include "../Utilities/TerminalUtils.hpp"
+#include "event_actions.hpp"
+#include "message.hpp"
+#include "../entities/player_status.hpp"
+#include "../utilities/terminal_utils.hpp"
 using namespace std;
 
-void GameActions::showQuestionMenu(string question) {
+void GameEventActions::showQuestionMenu(string question) {
     cout << "<< " << question << " >>" << endl << endl;
 }
 
-void GameActions::showActionsMenu(string actions[numberOfActions]) {
+void GameEventActions::showActionsMenu(string actions[numberOfActions]) {
     cout << "   ACTIONS" << endl;
     // Use the array
     for (int i = 0; i < numberOfActions; i++) {
@@ -30,7 +30,7 @@ void selectRandomEvent() {
 }
 
 int userSelectedAction;
-void GameActions::triggerBaseEvent(string question, string actions[4]) {
+void GameEventActions::triggerBaseEvent(string question, string actions[4]) {
     while (true) {
         TerminalUtils::clearTerminal();
         PlayerStatus::showGameStatusOnScreen();

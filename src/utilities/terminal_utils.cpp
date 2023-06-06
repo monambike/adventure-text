@@ -5,7 +5,7 @@
 #include <chrono>
 #include <iostream>
 #include <thread>
-#include "TerminalUtils.hpp"
+#include "terminal_utils.hpp"
 
 std::atomic<bool> timerExpired(false);
 

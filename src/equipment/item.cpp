@@ -1,8 +1,8 @@
 // Copyright(c) 2023-present, Vinícius Gabriel (@monambike)
 // Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
-#include "Item.hpp"
-#include "../Utilities/TerminalUtils.hpp"
+#include "item.hpp"
+#include "../utilities/terminal_utils.hpp"
 
 Item::Item(std::string name, std::string description, Rarity rarity)
     : name(name), description(description), rarity(rarity) {}
@@ -20,14 +20,18 @@ Rarity Item::getRarity() const {
     return rarity;
 }
 
-void Item::displayName() {
+Color Item::getRarityColor() const {
     switch (rarity) {
-        case COMMON: TerminalUtils::changeTerminalTextColor(WHITE); break;
-        case UNCOMMON: TerminalUtils::changeTerminalTextColor(BLUE); break;
-        case RARE: TerminalUtils::changeTerminalTextColor(CYAN); break;
-        case EPIC: TerminalUtils::changeTerminalTextColor(MAGENTA); break;
-        case LEGENDARY: TerminalUtils::changeTerminalTextColor(YELLOW); break;
+        case COMMON: return WHITE; break;
+        case UNCOMMON: return BLUE; break;
+        case RARE: return CYAN; break;
+        case EPIC: return MAGENTA; break;
+        case LEGENDARY: return YELLOW; break;
     }
+}
+
+void Item::displayName() {
+    TerminalUtils::changeTerminalTextColor(getRarityColor());
     std::cout << name;
     TerminalUtils::changeTerminalTextColor(WHITE);
 }

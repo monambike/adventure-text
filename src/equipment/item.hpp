@@ -5,6 +5,7 @@
 #define ITEM_H
 
 #include <iostream>
+#include "../utilities/terminal_utils.hpp"
 
 enum Rarity {
     COMMON,
@@ -26,6 +27,7 @@ public:
     std::string getName() const;
     std::string getDescription() const;
     Rarity getRarity() const;
+    Color getRarityColor() const;
 
     void showDetailedInfo();
     void displayName();

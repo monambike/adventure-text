@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include "Player.hpp"
-#include "PlayerStatus.hpp"
-#include "../Utilities/TerminalUtils.hpp"
+#include "player_status.hpp"
+#include "../utilities/terminal_utils.hpp"
 
 void PlayerStatus::displayMajorLine() {
     cout << "==============================";
@@ -24,7 +24,7 @@ void PlayerStatus::displayUserLife(){
 void PlayerStatus::showGameStatusOnScreen() {
     // Header line
     displayMajorLine();
-    cout << endl << "            STATUS" << endl << endl;
+    cout << endl << "[ESC]       STATUS" << endl << endl;
     // Displaying player name line
     mainPlayer.displayPlayerName();
     cout << endl;

@@ -1,12 +1,12 @@
 // Copyright(c) 2023-present, Vinícius Gabriel (@monambike)
 // Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
-#ifndef GAMEACTIONS_H
-#define GAMEACTIONS_H
+#ifndef GAMEEVENTACTIONS_H
+#define GAMEEVENTACTIONS_H
 
 #include <iostream>
 
-class GameActions {
+class GameEventActions {
 private:
     const static int numberOfActions = 4;
     static void showQuestionMenu(std::string question);

@@ -2,22 +2,23 @@
 // Distributed under Creative Commons License (https://creativecommons.org/licenses/by/4.0/)
 
 #include <iostream>
-#include "GameComponents/GameActions.hpp"
-#include "GameComponents/GameEvent.hpp"
-#include "GameComponents/GameMessage.hpp"
-#include "PlayerComponents/Player.hpp"
-#include "PlayerComponents/PlayerStatus.hpp"
-#include "Utilities/TerminalUtils.hpp"
+#include "game/event_actions.hpp"
+#include "game/event.hpp"
+#include "game/message.hpp"
+#include "entities/player.hpp"
+#include "entities/player_status.hpp"
+#include "utilities/terminal_utils.hpp"
 
 int main() {
+    // Showing welcome message
     TerminalUtils::clearTerminal();
-    // Welcome message
-    GameMessage::showWelcomeMessage();
+    GameMessage::showWelcomeMessageAndWaitKeyPress();
 
     // Ask for user the name he would like to have
     TerminalUtils::clearTerminal();
-    GameMessage::askForChangePlayerName();
+    GameMessage::askForPlayerNameChange();
 
+    // Starts the game
     GameEvent::strangeCandyEvent();
 
     return 0;

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Player.hpp"
-#include "../Utilities/TerminalUtils.hpp"
+#include "../utilities/terminal_utils.hpp"
 using namespace std;
 
 Player mainPlayer;

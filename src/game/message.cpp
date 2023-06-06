@@ -5,11 +5,24 @@
 #include <conio.h>
 #include <iostream>
 #include <thread>
-#include "GameMessage.hpp"
-#include "../PlayerComponents/Player.hpp"
-#include "../Utilities/TerminalUtils.hpp"
+#include "message.hpp"
+#include "../entities/player.hpp"
+#include "../utilities/terminal_utils.hpp"
 
-void showGameDescription() {
+#pragma region Private
+
+void GameMessage::showGameTitle() {
+    TerminalUtils::changeTerminalTextColor(WHITE);
+    std::cout << "WELCOME TO ";
+    // Game title as red
+    TerminalUtils::changeTerminalTextColor(BLUE);
+    std::cout << "SUPER GAME SAGA";
+    // Returning terminal color as white again
+    TerminalUtils::changeTerminalTextColor(WHITE);
+    std::cout << "!" << endl;
+}
+
+void GameMessage::showGameDescription() {
     std::cout << R"(
 In this game, you will embark on a captivating journey through many
 adventures.
@@ -22,43 +35,38 @@ and the powerful capabilities it provides.
 Enjoy the adventure and let the history unfold!
     )";
 
-    
     int pressedKey = _getch();
-    if (pressedKey == 8) { // Tab key is pressed
+    const int TAB_KEY = 8;
+    if (pressedKey == TAB_KEY) { // Tab key is pressed
         cout << "Return to main menu";
     }
 }
 
-void GameMessage::clearTerminalAndShowInvalidInputMessage() {
-    TerminalUtils::clearTerminal();
-    TerminalUtils::changeTerminalTextColor(Red);
-    std::cout << "INVALID INPUT" << endl << endl;;
+void GameMessage::writeTextPressAnyKeyToContinue() {
+    TerminalUtils::changeTerminalTextColor(YELLOW);
+    cout << endl << ">> Press any key to continue... <<";
     TerminalUtils::changeTerminalTextColor(WHITE);
-    std::cout << "This option it's not a valid input, please select an option from ";
-    TerminalUtils::changeTerminalTextColor(Red);
-    std::cout << "list of actions";
-    TerminalUtils::changeTerminalTextColor(WHITE);
-    std::cout << "." << endl;
 }
 
-void showGameTitle() {
-    TerminalUtils::changeTerminalTextColor(WHITE);
-    std::cout << "WELCOME TO ";
-    // Game title as red
-    TerminalUtils::changeTerminalTextColor(BLUE);
-    std::cout << "SUPER GAME SAGA";
-    // Returning terminal color as white again
-    TerminalUtils::changeTerminalTextColor(WHITE);
-    std::cout << "!" << endl;
+void GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage()  {
+    writeTextPressAnyKeyToContinue();
+    int pressedKey = _getch();
+    if (pressedKey == 9) { // Tab key is pressed
+        showGameDescription();
+    }
 }
 
-void GameMessage::showWelcomeMessage() {
+#pragma endregion
+
+#pragma region Public
+
+void GameMessage::showWelcomeMessageAndWaitKeyPress() {
     showGameTitle();
     cout << endl << "Press [TAB] to see game description.";
-    GameMessage::showPressAnyKeyToContinueMessage();
+    GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage();
 }
 
-void GameMessage::askForChangePlayerName() {
+void GameMessage::askForPlayerNameChange() {
     // Asking for user input
     std::cout << endl << "Please, insert the ";
     TerminalUtils::changeTerminalTextColor(YELLOW);
@@ -75,20 +83,6 @@ void GameMessage::askForChangePlayerName() {
     // Set terminal color to white again and its name on character
     TerminalUtils::changeTerminalTextColor(WHITE);
     mainPlayer.setPlayerName(userInput);
-}
-
-void writeTextPressAnyKeyToContinue() {
-    TerminalUtils::changeTerminalTextColor(YELLOW);
-    cout << endl << ">> Press any key to continue... <<";
-    TerminalUtils::changeTerminalTextColor(WHITE);
-}
-
-void showMenuPressAnyKeyToContinueMessageForMenu()  {
-    writeTextPressAnyKeyToContinue();
-    int pressedKey = _getch();
-    if (pressedKey == 9) { // Tab key is pressed
-        showGameDescription();
-    }
 }
 
 void GameMessage::showPressAnyKeyToContinueMessage() {
@@ -121,3 +115,17 @@ void GameMessage::showInvalidInputTimerMessage(){
     // Check the timer status
     if (timerExpired) std::cout << "Timer expired!" << endl;
 }
+
+void GameMessage::clearTerminalAndShowInvalidInputMessage() {
+    TerminalUtils::clearTerminal();
+    TerminalUtils::changeTerminalTextColor(Red);
+    std::cout << "INVALID INPUT" << endl << endl;;
+    TerminalUtils::changeTerminalTextColor(WHITE);
+    std::cout << "This option it's not a valid input, please select an option from ";
+    TerminalUtils::changeTerminalTextColor(Red);
+    std::cout << "list of actions";
+    TerminalUtils::changeTerminalTextColor(WHITE);
+    std::cout << "." << endl;
+}
+
+#pragma endregion
