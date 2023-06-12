@@ -8,9 +8,9 @@
 
 class GameMessage {
 private:
-    static void showGameTitle();
-    static void showGameDescription();
-    static void writeTextPressAnyKeyToContinue();
+    static void startGameHomeScreen();
+    static void showGameDescriptionText();
+    static void showGameDescriptionScreen();
     static void showMenuPressAnyKeyToContinueMessageForWelcomeMessage();
 public:
     // Home screen

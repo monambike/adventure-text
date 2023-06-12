@@ -13,7 +13,7 @@ void PlayerStatus::displayMajorLine() {
 void PlayerStatus::displayUserLife(){
     cout << "Life Points:";
     int end = mainPlayer.getPlayerLife();
-    TerminalUtils::changeTerminalTextColor(Red);
+    TerminalUtils::changeTerminalTextColor(RED);
     for (int i = 1; i <= end; i++) {
         cout << " ♥";
     }

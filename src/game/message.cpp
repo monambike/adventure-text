@@ -9,9 +9,26 @@
 #include "../entities/player.hpp"
 #include "../utilities/terminal_utils.hpp"
 
+const int TAB_KEY = 9;
+const int ESC_KEY = 27;
+const int ENTER_KEY = 13;
+
+enum GameFlow {
+    GO_TO_TITLE_SCREEN,
+    GO_TO_GAME_DESCRIPTION,
+    RUN_GAME,
+    EXIT_GAME
+};
+
 #pragma region Private
 
-void GameMessage::showGameTitle() {
+void showPressAnyKeyToContinueText() {
+    TerminalUtils::changeTerminalTextColor(YELLOW);
+    cout << endl << ">> Press any key to continue... <<";
+    TerminalUtils::changeTerminalTextColor(WHITE);
+}
+
+void showGameTitleText() {
     TerminalUtils::changeTerminalTextColor(WHITE);
     std::cout << "WELCOME TO ";
     // Game title as red
@@ -20,9 +37,48 @@ void GameMessage::showGameTitle() {
     // Returning terminal color as white again
     TerminalUtils::changeTerminalTextColor(WHITE);
     std::cout << "!" << endl;
+
+    TerminalUtils::changeTerminalTextColor(YELLOW);
+    cout << "Press [TAB] key to show game description." << endl;
+    cout << "Press [ESC] to exit.";
+    TerminalUtils::changeTerminalTextColor(WHITE);
+
+    showPressAnyKeyToContinueText();
 }
 
-void GameMessage::showGameDescription() {
+GameFlow processInputAndGetGameFlow(int keyPress) {
+    switch (keyPress) {
+        case TAB_KEY:
+            if (1 == 1) { // if already is on the title
+                return GO_TO_GAME_DESCRIPTION;
+            }
+            return GO_TO_TITLE_SCREEN;
+        case ESC_KEY: return EXIT_GAME;
+        default: return RUN_GAME;
+    }
+}
+
+void GameMessage::startGameHomeScreen() {
+    showGameTitleText();
+    while(true) {
+        GameFlow gameFlow;
+        while(true) {
+            // Getting what user want to do next
+            int keyPress = _getch();
+            gameFlow = processInputAndGetGameFlow(keyPress);
+        }
+
+        TerminalUtils::clearTerminal();
+
+        if (gameFlow == RUN_GAME) break;
+        else if (gameFlow == EXIT_GAME) exit(0);
+
+        if (gameFlow == GO_TO_TITLE_SCREEN) showGameTitleText();
+        else if (gameFlow == GO_TO_GAME_DESCRIPTION) showGameDescriptionScreen();
+    }
+}
+
+void GameMessage::showGameDescriptionText() {
     std::cout << R"(
 In this game, you will embark on a captivating journey through many
 adventures.
@@ -34,25 +90,23 @@ and the powerful capabilities it provides.
 
 Enjoy the adventure and let the history unfold!
     )";
-
-    int pressedKey = _getch();
-    const int TAB_KEY = 8;
-    if (pressedKey == TAB_KEY) { // Tab key is pressed
-        cout << "Return to main menu";
-    }
 }
 
-void GameMessage::writeTextPressAnyKeyToContinue() {
+void GameMessage::showGameDescriptionScreen() {
+    TerminalUtils::clearTerminal();
+    GameMessage::showGameDescriptionText();
     TerminalUtils::changeTerminalTextColor(YELLOW);
-    cout << endl << ">> Press any key to continue... <<";
+    cout << "Press [TAB] key to return for menu." << endl;
+    cout << "Press [ESC] to exit.";
     TerminalUtils::changeTerminalTextColor(WHITE);
 }
 
 void GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage()  {
-    writeTextPressAnyKeyToContinue();
+    showPressAnyKeyToContinueText();
     int pressedKey = _getch();
-    if (pressedKey == 9) { // Tab key is pressed
-        showGameDescription();
+    const int TAB_KEY = 9;
+    if (pressedKey == TAB_KEY) { // Tab key is pressed
+        showGameDescriptionScreen();
     }
 }
 
@@ -61,9 +115,11 @@ void GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage()  {
 #pragma region Public
 
 void GameMessage::showWelcomeMessageAndWaitKeyPress() {
-    showGameTitle();
-    cout << endl << "Press [TAB] to see game description.";
-    GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage();
+    startGameHomeScreen();
+
+    // startGameHomeScreen();
+    // cout << endl << "Press [TAB] to see game description.";
+    // GameMessage::showMenuPressAnyKeyToContinueMessageForWelcomeMessage();
 }
 
 void GameMessage::askForPlayerNameChange() {
@@ -86,7 +142,7 @@ void GameMessage::askForPlayerNameChange() {
 }
 
 void GameMessage::showPressAnyKeyToContinueMessage() {
-    writeTextPressAnyKeyToContinue();
+    showPressAnyKeyToContinueText();
     _getch(); // Waits for a keypress without requiring Enter
 }
 
@@ -118,11 +174,11 @@ void GameMessage::showInvalidInputTimerMessage(){
 
 void GameMessage::clearTerminalAndShowInvalidInputMessage() {
     TerminalUtils::clearTerminal();
-    TerminalUtils::changeTerminalTextColor(Red);
+    TerminalUtils::changeTerminalTextColor(RED);
     std::cout << "INVALID INPUT" << endl << endl;;
     TerminalUtils::changeTerminalTextColor(WHITE);
     std::cout << "This option it's not a valid input, please select an option from ";
-    TerminalUtils::changeTerminalTextColor(Red);
+    TerminalUtils::changeTerminalTextColor(RED);
     std::cout << "list of actions";
     TerminalUtils::changeTerminalTextColor(WHITE);
     std::cout << "." << endl;

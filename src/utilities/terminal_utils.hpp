@@ -10,7 +10,7 @@ using namespace std;
 
 enum Color {
     BLACK,
-    Red,
+    RED,
     GREEN,
     YELLOW,
     BLUE,

@@ -44,7 +44,7 @@ void GameEventActions::triggerBaseEvent(string question, string actions[4]) {
         if (!isdigit(userSelectedAction) || userSelectedAction < '1' || userSelectedAction > '4') {
             // Clears the terminal and shows the title
             TerminalUtils::clearTerminal();
-            TerminalUtils::changeTerminalTextColor(Red);
+            TerminalUtils::changeTerminalTextColor(RED);
             
             GameMessage::showInvalidInputTimerMessage();
         } else {
