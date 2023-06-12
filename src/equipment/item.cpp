@@ -22,11 +22,12 @@ Rarity Item::getRarity() const {
 
 Color Item::getRarityColor() const {
     switch (rarity) {
-        case COMMON: return WHITE; break;
-        case UNCOMMON: return BLUE; break;
-        case RARE: return CYAN; break;
-        case EPIC: return MAGENTA; break;
-        case LEGENDARY: return YELLOW; break;
+        case COMMON: return WHITE;
+        case UNCOMMON: return BLUE;
+        case RARE: return CYAN;
+        case EPIC: return MAGENTA;
+        case LEGENDARY: return YELLOW;
+        default: throw std::runtime_error("Unable to determine item color for current item rarity");
     }
 }
 
